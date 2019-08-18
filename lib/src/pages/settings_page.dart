@@ -24,6 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() { 
     super.initState();
+    _prefs.lastPage = SettingsPage.routeName;
     _gender = _prefs.gender;
     _secondaryColor = _prefs.secondaryColor;
     _textController = new TextEditingController(text: _prefs.name);

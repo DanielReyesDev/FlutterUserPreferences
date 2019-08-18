@@ -5,24 +5,25 @@ import 'package:user_preferences/src/widgets/menu_widget.dart';
 class HomePage extends StatelessWidget {
 
   static final String routeName = "home";
-  final prefs = UserPreferences();
+  final _prefs = UserPreferences();
 
   @override
   Widget build(BuildContext context) {
+    _prefs.lastPage = HomePage.routeName;
     return Scaffold(
       appBar: AppBar(
         title: Text('Preferencias de usuario'),
-        backgroundColor: (prefs.secondaryColor) ? Colors.teal : Colors.blue,
+        backgroundColor: (_prefs.secondaryColor) ? Colors.teal : Colors.blue,
       ),
       drawer: MenuWidget(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("Color Secundario: ${prefs.secondaryColor}"),
+          Text("Color Secundario: ${_prefs.secondaryColor}"),
           Divider(),
-          Text("Género: ${prefs.gender}"),
+          Text("Género: ${_prefs.gender}"),
           Divider(),
-          Text("Nombre de usuario: ${prefs.name}"),
+          Text("Nombre de usuario: ${_prefs.name}"),
           Divider(),
 
         ],
